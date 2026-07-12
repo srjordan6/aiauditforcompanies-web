@@ -1,37 +1,176 @@
----
-import Layout from '../layouts/Layout.astro';
----
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Audit for Companies — Know What Your AI Is Really Doing</title>
+<meta name="description" content="A formal AI audit for small and mid-sized companies. Get an auditor's opinion on your AI tools, risks, costs, and governance in under an hour. $399.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#201868; --orange:#F07800; --gray:#7A8A9E; --bg:#FFFFFF; --soft:#F4F3FA; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:'Poppins',sans-serif; color:var(--navy); background:var(--bg); line-height:1.65; }
+  h1,h2,h3 { font-family:'Lora',serif; line-height:1.2; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
+  header { background:var(--bg); border-bottom:1px solid #E8E6F0; position:sticky; top:0; z-index:10; }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--navy); }
+  .logo strong { font-family:'Lora',serif; font-size:20px; }
+  .logo small { color:var(--gray); letter-spacing:2px; font-size:10px; display:block; }
+  .btn { display:inline-block; background:var(--orange); color:#fff; text-decoration:none;
+         font-weight:600; padding:14px 30px; border-radius:6px; font-size:16px; }
+  .btn:hover { background:#d96c00; }
+  .btn-nav { padding:10px 20px; font-size:14px; }
+  section { padding:72px 0; }
+  section.alt { background:var(--soft); }
+  .kicker { color:var(--orange); font-weight:600; letter-spacing:3px; font-size:12px; text-transform:uppercase; }
+  h1 { font-size:46px; margin:14px 0 18px; }
+  h2 { font-size:34px; margin:12px 0 16px; }
+  p.lead { font-size:19px; color:#3A3560; max-width:760px; }
+  p.body { color:#3A3560; max-width:760px; margin-top:12px; }
+  .cta-row { margin-top:30px; }
+  .cta-row .note { display:block; margin-top:10px; color:var(--gray); font-size:13px; }
+  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; margin-top:36px; }
+  .card { background:#fff; border:1px solid #E8E6F0; border-left:4px solid var(--orange);
+          border-radius:8px; padding:24px; }
+  .card h3 { font-size:19px; margin-bottom:8px; }
+  .card p { font-size:14.5px; color:#3A3560; }
+  .num { font-family:'Lora',serif; font-size:34px; color:var(--orange); font-weight:700; }
+  .pain li { margin:10px 0 10px 18px; color:#3A3560; }
+  .price { font-family:'Lora',serif; font-size:56px; }
+  .price small { font-size:18px; color:var(--gray); font-family:'Poppins',sans-serif; }
+  .faq details { border-bottom:1px solid #E8E6F0; padding:16px 0; max-width:820px; }
+  .faq summary { font-weight:600; cursor:pointer; font-size:16.5px; }
+  .faq p { margin-top:10px; color:#3A3560; font-size:15px; }
+  footer { background:var(--navy); color:#CFCBE8; padding:44px 0; font-size:14px; }
+  footer a { color:#fff; text-decoration:none; margin-right:22px; }
+  footer a:hover { color:var(--orange); }
+  .shield { width:44px; height:48px; }
+  @media (max-width:640px){ h1{font-size:32px} h2{font-size:26px} section{padding:48px 0} }
+</style>
+</head>
+<body>
 
-<Layout
-  title="Coming soon — aiauditforcompanies.com"
-  description="The AI audit that surfaces what unmanaged AI is silently costing your business. Launching soon. From SRJ Consulting & Services LLC."
-  ogTitle="Find your $670K. Coming soon."
-  ogDescription="The AI audit that surfaces what unmanaged AI is silently costing your business."
-  noindex={true}
->
-  <div class="content-srj min-h-screen flex flex-col px-6 py-8">
-    <div class="text-sm font-medium tracking-wide" style="color: var(--color-navy);">
-      aiauditforcompanies.com
-    </div>
+<header><div class="wrap nav">
+  <a class="logo" href="/">
+    <svg class="shield" viewBox="14 8 132 146" xmlns="http://www.w3.org/2000/svg"><path d="M80 18 L132 36 V78 C132 112 108 134 80 144 C52 134 28 112 28 78 V36 Z" fill="#201868"/><path d="M56 76 L72 94 L106 56" fill="none" stroke="#F07800" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="56" cy="76" r="6.5" fill="#fff"/><circle cx="72" cy="94" r="6.5" fill="#fff"/><circle cx="106" cy="56" r="6.5" fill="#fff"/></svg>
+    <span><strong>AI Audit</strong><small>FOR COMPANIES</small></span>
+  </a>
+  <a class="btn btn-nav" href="https://srj-audit-web-gor5.onrender.com/q/start/">Start Your Audit</a>
+</div></header>
 
-    <section class="flex-1 flex flex-col items-start justify-center py-16 max-w-[880px]">
-      <h1 class="font-bold leading-[1.05] tracking-tight" style="font-family: var(--font-display); color: var(--color-navy); font-size: clamp(2.75rem, 7vw, 5rem);">
-        Find your $670K.
-        <span class="block font-medium mt-4" style="color: var(--color-orange); font-size: 0.55em;">
-          Coming soon.
-        </span>
-      </h1>
-
-      <hr class="w-16 h-[3px] border-0 my-8" style="background: var(--color-orange);" />
-
-      <p class="max-w-[640px]" style="color: var(--color-gray-srj); font-size: clamp(1.0625rem, 1.6vw, 1.25rem);">
-        The AI audit that surfaces what unmanaged AI is silently costing your business.
-      </p>
-    </section>
-
-    <footer class="text-sm pt-8 leading-relaxed" style="color: var(--color-gray-srj); border-top: 1px solid var(--color-rule-light);">
-      A property of SRJ Consulting &amp; Services LLC.<br />
-      Visit the advisory at <a href="https://srjconsultingservices.com" rel="noopener" class="font-medium border-b border-transparent transition-colors hover:opacity-80" style="color: var(--color-orange);">srjconsultingservices.com</a>.
-    </footer>
+<!-- HERO: pain first -->
+<section><div class="wrap">
+  <span class="kicker">The question every owner is afraid to ask</span>
+  <h1>Your team is using AI right now.<br>Could you pass an audit on it?</h1>
+  <p class="lead">Tools you never approved. Customer data pasted into chatbots. Subscriptions
+  nobody tracks. AI-written emails going out the door unreviewed. If a regulator, insurer,
+  or major customer asked you to account for your company's AI use today, most owners
+  couldn't &mdash; and they know it.</p>
+  <p class="body">AI Audit for Companies gives you what the Fortune 500 pay six figures for:
+  a formal, evidence-based audit of your AI posture, scored against four professional
+  frameworks and a 100-point qualified-opinion checklist &mdash; finished in under an hour,
+  delivered to your inbox as a signed auditor's report.</p>
+  <div class="cta-row">
+    <a class="btn" href="https://srj-audit-web-gor5.onrender.com/q/start/">Start Your AI Audit Now</a>
+    <span class="note">Tier 1 Snapshot &middot; about 45 minutes &middot; report emailed the moment you finish</span>
   </div>
-</Layout>
+</div></section>
+
+<!-- AGITATE -->
+<section class="alt"><div class="wrap">
+  <span class="kicker">What it's costing you to not know</span>
+  <h2>Shadow AI is a liability with your name on it</h2>
+  <p class="lead">Every week without visibility, the exposure compounds:</p>
+  <ul class="pain">
+    <li><strong>Data exposure.</strong> Employees paste client PII, health information, and proprietary code into public AI tools with no policy stopping them.</li>
+    <li><strong>Silent spend.</strong> Duplicate subscriptions and auto-renewals across departments &mdash; nobody can name the real monthly AI number.</li>
+    <li><strong>Unreviewed output.</strong> AI-drafted contracts, quotes, and customer emails leaving your company with no human sign-off.</li>
+    <li><strong>Regulatory drift.</strong> HIPAA, FTC, and state AI rules are tightening while your documentation stands still.</li>
+    <li><strong>The efficiency tax.</strong> Hours burned every week correcting, verifying, and reformatting AI output nobody measures.</li>
+  </ul>
+  <p class="body">You can't fix what you can't see. The first step isn't another policy
+  memo &mdash; it's an honest, structured accounting of where you actually stand.</p>
+  <div class="cta-row">
+    <a class="btn" href="https://srj-audit-web-gor5.onrender.com/q/start/">See Where You Stand &mdash; Start the Audit</a>
+  </div>
+</div></section>
+
+<!-- VALUE / SOLUTION -->
+<section><div class="wrap">
+  <span class="kicker">What you get</span>
+  <h2>A real audit. A real opinion. Not another quiz.</h2>
+  <p class="lead">One structured questionnaire produces a board-ready report with an
+  auditor's qualified or unqualified opinion &mdash; the same discipline applied to
+  financial statements, applied to your AI.</p>
+  <div class="grid3">
+    <div class="card"><h3>Audit Findings</h3><p>Your AI tool inventory, fully loaded cost map, and Shadow AI surface &mdash; what's really in use, what it really costs.</p></div>
+    <div class="card"><h3>AI Readiness Scorecard</h3><p>Six readiness conditions scored 0&ndash;100: workflows, data reliability, adoption pattern, governance, efficiency yield, and operational leakage.</p></div>
+    <div class="card"><h3>Risk &amp; Governance Review&trade;</h3><p>Data exposure model, decision-influence matrix, vendor risk inventory, and a governance maturity scale.</p></div>
+    <div class="card"><h3>Efficiency &amp; Process Optimization</h3><p>Where time and money leak, the AI Efficiency Tax&trade; you're paying, and a 90-day optimization plan.</p></div>
+    <div class="card"><h3>The Auditor's Opinion</h3><p>A formal opinion with its full basis: exceptions identified against our 100-point qualified-opinion checklist, each backed by your own evidence.</p></div>
+    <div class="card"><h3>AI-Written Analysis</h3><p>Every section includes professional auditor narrative &mdash; findings and recommended actions specific to your answers, not boilerplate.</p></div>
+  </div>
+  <div class="cta-row">
+    <a class="btn" href="https://srj-audit-web-gor5.onrender.com/q/start/">Get Your Report &mdash; Start Now</a>
+  </div>
+</div></section>
+
+<!-- HOW IT WORKS -->
+<section class="alt"><div class="wrap">
+  <span class="kicker">How it works</span>
+  <h2>From blind spot to board-ready in three steps</h2>
+  <div class="grid3">
+    <div class="card"><div class="num">1</div><h3>Answer the questionnaire</h3><p>107 focused questions about your tools, data, spend, and oversight. About 45 minutes. "Don't know" is a valid answer &mdash; and a finding.</p></div>
+    <div class="card"><div class="num">2</div><h3>We score and analyze</h3><p>Four scoring frameworks plus AI-powered auditor analysis evaluate your answers against the 100-point qualified-opinion checklist.</p></div>
+    <div class="card"><div class="num">3</div><h3>Report lands in your inbox</h3><p>Your locked PDF report arrives by email minutes after you finish &mdash; with a 7-day window to review and update any answer.</p></div>
+  </div>
+  <div class="cta-row">
+    <a class="btn" href="https://srj-audit-web-gor5.onrender.com/q/start/">Start Step 1 Now</a>
+    <span class="note">No sales call. No demo. Just answers.</span>
+  </div>
+</div></section>
+
+<!-- PRICE / OFFER -->
+<section><div class="wrap">
+  <span class="kicker">Straightforward pricing</span>
+  <h2>Six-figure audit discipline. Small-business price.</h2>
+  <p class="price">$399 <small>one-time &middot; Tier 1 AI Audit Snapshot</small></p>
+  <p class="body">Compare that to one hour of a Big Four consultant &mdash; or to one data
+  incident, one lost enterprise customer, one failed vendor questionnaire. Your report is
+  yours to hand to your board, your insurer, your bank, or your biggest customer.</p>
+  <p class="body">Need deeper assurance? Tier 2 and Tier 3 multi-respondent engagements
+  with documentation evidence are available after your Snapshot.</p>
+  <div class="cta-row">
+    <a class="btn" href="https://srj-audit-web-gor5.onrender.com/q/start/">Start Your $399 Audit</a>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="alt"><div class="wrap faq">
+  <span class="kicker">Common questions</span>
+  <h2>Before you ask</h2>
+  <details><summary>How long does it take?</summary><p>Most owners finish in 40&ndash;60 minutes. You can stop and resume any time with your resume link. The report is generated and emailed automatically the moment you finish.</p></details>
+  <details><summary>What if I don't know an answer?</summary><p>Answer "Don't know." Visibility gaps are themselves audit findings &mdash; the report treats them as scope limitations, exactly as a financial auditor would.</p></details>
+  <details><summary>Who sees my answers?</summary><p>Your responses are used solely to produce your report. See our <a href="privacy.html">Privacy Policy</a>.</p></details>
+  <details><summary>Is this a real audit opinion?</summary><p>You receive a formal qualified or unqualified opinion with a documented basis: exceptions identified against a 100-point checklist across five governance domains, each tied to your own answers. It is an advisory assessment, not a statutory audit &mdash; see our <a href="disclaimer.html">Disclaimer</a>.</p></details>
+  <details><summary>Can I change my answers after finishing?</summary><p>Yes &mdash; you get a 7-day edit window to review and update any response and regenerate your report.</p></details>
+  <div class="cta-row">
+    <a class="btn" href="https://srj-audit-web-gor5.onrender.com/q/start/">No More Questions &mdash; Start the Audit</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p style="margin-bottom:14px;">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </p>
+  <p>&copy; 2026 SRJ Consulting &amp; Services LLC &middot; aiauditforcompanies.com &middot;
+  AI Risk &amp; Governance Review&trade;, AI Efficiency Tax&trade;, and Standing AI Adoption
+  Policy&trade; are trademarks of SRJ Consulting &amp; Services LLC.</p>
+</div></footer>
+
+</body>
+</html>
