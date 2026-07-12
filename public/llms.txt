@@ -1,0 +1,44 @@
+# AI Audit for Companies
+
+> A formal AI audit for small and mid-sized companies. One 45-minute
+> questionnaire produces a board-ready PDF report with an auditor's
+> qualified or unqualified opinion on the company's AI tools, costs,
+> risks, and governance. Tier 1 Snapshot: $399, report delivered by
+> email immediately on completion. Operated by SRJ Consulting &
+> Services LLC (srjconsultingservices.com).
+
+## What the audit covers
+- AI tool inventory, fully loaded cost map, and Shadow AI surface
+- AI Readiness Scorecard: six conditions scored 0-100
+- AI Risk & Governance Review(tm): data exposure, decision influence,
+  vendor risk, governance maturity
+- AI Efficiency & Process Optimization, including the AI Efficiency
+  Tax(tm) and a 90-day plan
+- A formal auditor's opinion with its basis: exceptions identified
+  against a 100-point qualified-opinion checklist across five
+  governance domains, each backed by the respondent's own evidence
+
+## Who it is for
+Owners and executives of companies (roughly 1-500 employees) that use
+AI tools and need to account for them to boards, insurers, regulators,
+banks, or enterprise customers.
+
+## How it works
+1. Answer 107 structured questions (about 45 minutes, resumable).
+2. Four scoring frameworks plus AI-assisted auditor analysis evaluate
+   the answers. "Don't know" answers become documented scope
+   limitations.
+3. A locked PDF report is emailed on completion, with a 7-day window
+   to review and update answers.
+
+## Pages
+- [Home](https://aiauditforcompanies.com/): the offer, deliverables, pricing, FAQ
+- [Start the audit](https://srj-audit-web-gor5.onrender.com/q/start/): the questionnaire
+- [Terms of Service](https://aiauditforcompanies.com/terms.html)
+- [Privacy Policy](https://aiauditforcompanies.com/privacy.html)
+- [Disclaimer](https://aiauditforcompanies.com/disclaimer.html)
+
+## Company
+SRJ Consulting & Services LLC. AI Risk & Governance Review(tm),
+AI Efficiency Tax(tm), and Standing AI Adoption Policy(tm) are
+trademarks of SRJ Consulting & Services LLC.
