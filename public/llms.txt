@@ -33,7 +33,7 @@ banks, or enterprise customers.
 
 ## Pages
 - [Home](https://aiauditforcompanies.com/): the offer, deliverables, pricing, FAQ
-- [Start the audit](https://srj-audit-web-gor5.onrender.com/q/start/): the questionnaire
+- [Start the audit](https://aiauditforcompanies.com/startaiaudit): the questionnaire
 - [Terms of Service](https://aiauditforcompanies.com/terms.html)
 - [Privacy Policy](https://aiauditforcompanies.com/privacy.html)
 - [Disclaimer](https://aiauditforcompanies.com/disclaimer.html)

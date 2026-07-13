@@ -1,0 +1,28 @@
+# Cloudflare Worker: audit-proxy
+# Purpose: transparently proxy Django audit-app paths from the aiauditforcompanies.com
+# apex to the Render backend, so the address bar stays branded.
+#
+# Deploy:
+#   cd worker/audit-proxy
+#   npm install -g wrangler   # once
+#   npx wrangler login        # once
+#   npx wrangler deploy
+#
+# After the first deploy, in the Cloudflare dashboard:
+#   Workers & Pages -> audit-proxy -> Settings -> Triggers -> Add Route
+#     Route: aiauditforcompanies.com/startaiaudit*    Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/q/*              Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/r/*              Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/billing/*        Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/static/*         Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/admin/*          Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/healthz          Zone: aiauditforcompanies.com
+#     Route: aiauditforcompanies.com/django-rq/*      Zone: aiauditforcompanies.com
+
+name = "audit-proxy"
+main = "src/index.js"
+compatibility_date = "2026-07-12"
+
+# Upstream Django app on Render. Change UPSTREAM below if the Render URL changes.
+[vars]
+UPSTREAM = "https://srj-audit-web-gor5.onrender.com"
