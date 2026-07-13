@@ -1,0 +1,18 @@
+{
+	// Wrangler config for the marketing worker aiauditforcompanies-web.
+	// `main` is our custom worker that proxies Django audit-app paths to
+	// Render and delegates everything else to the ASSETS static binding.
+	// Astro build output goes to ./dist/client (created by @astrojs/cloudflare).
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"compatibility_date": "2026-07-13",
+	"compatibility_flags": ["global_fetch_strictly_public"],
+	"name": "aiauditforcompanies-web",
+	"main": "./src/worker.js",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	}
+}

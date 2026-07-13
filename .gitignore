@@ -26,3 +26,15 @@ pnpm-debug.log*
 # local backup snapshots
 _backups/
 
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
+
+# local backup snapshots
+_backups/
+# local wrangler state
+.wrangler/
+
