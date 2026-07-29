@@ -8,7 +8,7 @@
 // If the Render backend URL changes, update UPSTREAM below.
 
 const UPSTREAM = "https://srj-audit-web-gor5.onrender.com";
-const APP_PATHS = /^\/(startaiaudit|q|r|billing|admin|static|healthz|django-rq)(\/|$)/;
+const APP_PATHS = /^\/(startaiaudit|aiscore|q|r|billing|admin|static|healthz|django-rq|dashboard|api)(\/|$)/;
 
 export default {
   /**
