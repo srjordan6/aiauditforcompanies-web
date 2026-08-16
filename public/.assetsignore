@@ -1,2 +1,5 @@
 _worker.js
 _routes.json
+*.bak_*
+*.bak
+*.tmp
