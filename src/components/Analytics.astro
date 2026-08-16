@@ -1,76 +1,29 @@
 ---
-// Analytics tags — single source of truth for third-party trackers on the
-// marketing site. Imported into src/pages/index.astro <head>.
+// Analytics + consent for the marketing site.
 //
-// The three raw HTML pages in public/ (terms, privacy, disclaimer) bypass
-// Astro entirely and carry these same snippets inline. If an ID changes
-// here, update those three files too.
+// This component is now a thin loader. All tag IDs, the consent state
+// machine, Consent Mode v2 defaults, the intent-event listener and the
+// banner live in ONE place: public/srj-analytics.js.
 //
-// Installed:
-//   Google Analytics 4   G-6LM3EMLLZN
-//   Microsoft Clarity    xta7r2l6l3
-//   StatCounter          13338525
-//   LinkedIn Insight     9681908
+// That file is also what the three raw HTML pages under public/ (terms,
+// privacy, disclaimer) load, via a single <script src> tag. Previously each
+// of those carried its own inline copy of every snippet, and this component
+// carried a comment warning that changing an ID meant remembering to edit
+// three other files. That failure mode is now structurally impossible.
 //
-// The LinkedIn tag is on the marketing homepage and on the Django exposure
-// screener only. It is deliberately NOT on /q/start/, which collects name,
-// email, company revenue and size — LinkedIn says keep the tag off pages
-// handling personal financial data. Django side lives in
-// templates/partials/_linkedin_insight.html.
+// What this component still does: pass build-time `pillar` and `section`
+// values, derived from the page path, as data attributes. The script falls
+// back to deriving the same values from location.pathname when they are
+// absent — which is how the raw public/ pages, with no build step, get
+// correct dimensions too.
 //
-// is:inline is required — without it Astro bundles and rewrites these
-// scripts, which breaks third-party tags.
+// is:inline is required — without it Astro bundles and rewrites the script
+// reference, and third-party tags break.
+
+const path = Astro.url.pathname;
+const segments = path.split('/').filter(Boolean);
+const pillar = segments.length ? segments[0] : 'home';
+const section = segments.length >= 2 ? segments.slice(0, 2).join('/') : pillar;
 ---
 
-<!-- Google tag (gtag.js) — GA4 -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-6LM3EMLLZN"></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6LM3EMLLZN');
-</script>
-
-<!-- Microsoft Clarity -->
-<script is:inline type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xta7r2l6l3");
-</script>
-
-<!-- Statcounter -->
-<script is:inline type="text/javascript">
-  var sc_project=13338525;
-  var sc_invisible=1;
-  var sc_security="d5ff6432";
-</script>
-<script is:inline type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-  href="https://statcounter.com/" target="_blank"><img
-  class="statcounter"
-  src="https://c.statcounter.com/13338525/0/d5ff6432/1/"
-  alt="Web Analytics"
-  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-
-<!-- LinkedIn Insight Tag — partner 9681908 -->
-<script is:inline type="text/javascript">
-  _linkedin_partner_id = "9681908";
-  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-</script>
-<script is:inline type="text/javascript">
-  (function(l) {
-    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-    window.lintrk.q=[]}
-    var s = document.getElementsByTagName("script")[0];
-    var b = document.createElement("script");
-    b.type = "text/javascript";b.async = true;
-    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-    s.parentNode.insertBefore(b, s);})(window.lintrk);
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none;" alt=""
-       src="https://px.ads.linkedin.com/collect/?pid=9681908&amp;fmt=gif" />
-</noscript>
+<script is:inline src="/srj-analytics.js" data-pillar={pillar} data-section={section}></script>
