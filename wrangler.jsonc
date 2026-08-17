@@ -10,7 +10,10 @@
 	"main": "./src/worker.js",
 	"assets": {
 		"directory": "./dist",
-		"binding": "ASSETS"
+		"binding": "ASSETS",
+		// Run the worker before asset serving so the canonical-host and
+		// legacy-.html 301s in src/worker.js apply to every request.
+		"run_worker_first": true
 	},
 	"observability": {
 		"enabled": true
