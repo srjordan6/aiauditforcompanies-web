@@ -18,6 +18,22 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Canonical scheme + host: http -> https, www -> apex. Permanent.
+    const CANON_HOST = "aiauditforcompanies.com";
+    if (url.protocol !== "https:" || url.hostname !== CANON_HOST) {
+      url.protocol = "https:";
+      url.hostname = CANON_HOST;
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Legacy .html paths -> clean URLs. 301 (permanent) instead of the
+    // assets binding's default 307 so crawlers consolidate signals.
+    const legacy = url.pathname.match(/^\/(index|terms|privacy|disclaimer)\.html$/);
+    if (legacy) {
+      const clean = legacy[1] === "index" ? "/" : "/" + legacy[1];
+      return Response.redirect(url.origin + clean + url.search, 301);
+    }
+
     if (!APP_PATHS.test(url.pathname)) {
       // Marketing / static asset request — hand to the assets binding.
       return env.ASSETS.fetch(request);
