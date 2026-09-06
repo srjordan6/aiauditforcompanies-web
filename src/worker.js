@@ -5,9 +5,9 @@
 // hit this handler first; if the path is not a Django audit-app path we
 // delegate to env.ASSETS.fetch(request) to serve the static marketing site.
 //
-// If the Render backend URL changes, update UPSTREAM below.
+// If the origin URL changes, update UPSTREAM below.
 
-const UPSTREAM = "https://srj-audit-web-gor5.onrender.com";
+const UPSTREAM = "https://origin.aiauditforcompanies.com";
 const APP_PATHS = /^\/(startaiaudit|aiscore|q|r|billing|admin|static|healthz|django-rq|dashboard|api)(\/|$)/;
 
 export default {
@@ -51,6 +51,12 @@ export default {
     headers.set("X-Forwarded-Proto", "https");
     const cfIp = request.headers.get("CF-Connecting-IP");
     if (cfIp) headers.set("X-Forwarded-For", cfIp);
+    // The origin hostname is locked behind Cloudflare Access; only this
+    // Worker (service token) and the operator (email OTP) can reach it.
+    if (env.CF_ACCESS_CLIENT_ID && env.CF_ACCESS_CLIENT_SECRET) {
+      headers.set("CF-Access-Client-Id", env.CF_ACCESS_CLIENT_ID);
+      headers.set("CF-Access-Client-Secret", env.CF_ACCESS_CLIENT_SECRET);
+    }
 
     const proxied = new Request(upstream.toString(), {
       method: request.method,
