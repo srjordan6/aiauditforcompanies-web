@@ -8,7 +8,7 @@
 // If the origin URL changes, update UPSTREAM below.
 
 const UPSTREAM = "https://origin.aiauditforcompanies.com";
-const APP_PATHS = /^\/(startaiaudit|startsecurityaudit|startbothaudits|starttier2|prepare|aiscore|q|r|e|billing|admin|static|healthz|django-rq|dashboard|api)(\/|$)/;
+const APP_PATHS = /^\/(startaiaudit|startsecurityaudit|startbothaudits|starttier2|prepare|reports|aiscore|q|r|e|billing|admin|static|healthz|django-rq|dashboard|api)(\/|$)/;
 
 export default {
   /**
