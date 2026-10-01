@@ -8,6 +8,11 @@
 // If the origin URL changes, update UPSTREAM below.
 
 const UPSTREAM = "https://origin.aiauditforcompanies.com";
+// Known Django prefixes skip the asset lookup. Everything else is tried
+// against the marketing site's static assets first; a miss is proxied to
+// Django rather than 404'd here, so a new Django route works at the edge
+// without a Worker deploy (2026-10-01, after four allow-list misses:
+// /e/, /starttier2/, /prepare/, /reports/).
 const APP_PATHS = /^\/(startaiaudit|startsecurityaudit|startbothaudits|starttier2|prepare|reports|aiscore|q|r|e|billing|admin|static|healthz|django-rq|dashboard|api)(\/|$)/;
 
 export default {
@@ -34,9 +39,11 @@ export default {
       return Response.redirect(url.origin + clean + url.search, 301);
     }
 
-    if (!APP_PATHS.test(url.pathname)) {
+    if (!APP_PATHS.test(url.pathname) && (request.method === "GET" || request.method === "HEAD")) {
       // Marketing / static asset request — hand to the assets binding.
-      return env.ASSETS.fetch(request);
+      // A path the marketing site does not have falls through to Django.
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 404) return asset;
     }
 
     const upstream = new URL(url.pathname + url.search, UPSTREAM);
